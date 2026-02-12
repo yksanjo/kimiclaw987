@@ -1,0 +1,69 @@
+{
+  "name": "kimiclaw987",
+  "version": "1.0.0",
+  "type": "module",
+  "private": false,
+  "description": "🌙🦖 KimiClaw - Deploy your personal AI agent powered by Kimi (Moonshot AI) on Cloudflare Sandbox. Zero servers, zero maintenance, just intelligence.",
+  "scripts": {
+    "build": "vite build",
+    "deploy": "npm run build && wrangler deploy",
+    "dev": "vite dev",
+    "start": "wrangler dev",
+    "types": "wrangler types",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage"
+  },
+  "dependencies": {
+    "@cloudflare/puppeteer": "^1.0.5",
+    "hono": "^4.11.6",
+    "jose": "^6.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@cloudflare/sandbox": "*",
+    "@cloudflare/vite-plugin": "^1.0.0",
+    "@cloudflare/workers-types": "^4.20250109.0",
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^4.3.0",
+    "@vitest/coverage-v8": "^4.0.18",
+    "typescript": "^5.9.3",
+    "vite": "^6.0.0",
+    "vitest": "^4.0.18",
+    "wrangler": "^4.50.0"
+  },
+  "author": "@yksanjo (https://github.com/yksanjo)",
+  "license": "MIT",
+  "cloudflare": {
+    "bindings": {
+      "DEEPSEEK_API_KEY": {
+        "description": "Your DeepSeek API key from https://platform.deepseek.com"
+      },
+      "KIMI_API_KEY": {
+        "description": "Your Kimi/Moonshot AI API key from https://platform.moonshot.cn (required)"
+      },
+      "KIMI_BASE_URL": {
+        "description": "Kimi API base URL (default: https://api.moonshot.cn/v1)"
+      },
+      "OPENCLAW_GATEWAY_TOKEN": {
+        "description": "Token to protect gateway access. Random string, you can generate one with `openssl rand -base64 32`, for example."
+      },
+      "WHATSAPP_BUSINESS_TOKEN": {
+        "description": "WhatsApp Business API token from Meta Developer Portal"
+      },
+      "WHATSAPP_PHONE_NUMBER_ID": {
+        "description": "WhatsApp Business phone number ID"
+      },
+      "WHATSAPP_BUSINESS_ACCOUNT_ID": {
+        "description": "WhatsApp Business account ID"
+      },
+      "WHATSAPP_WEBHOOK_TOKEN": {
+        "description": "Webhook verification token for WhatsApp"
+      }
+    }
+  }
+}
